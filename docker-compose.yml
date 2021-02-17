@@ -1,4 +1,4 @@
-version: '3'
+version: '3.9'
 
 services:
   mongo:
@@ -34,7 +34,9 @@ services:
     ports:
       - 5000:5000
       - 1883:1883
-    restart: always
+    environment:
+      MONGO_USER: root
+      MONGO_PASSWORD: example
 
 volumes:
   nodemodules: {}
