@@ -23,16 +23,18 @@ services:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
 
-  # backend:
-  #   container_name: backend
-  #   build: ./backend
-  #   volumes:
-  #     - ./backend:/src
-  #     - nodemodules:/src/node_modules
-  #   command: node index.js
-  #   restart: always
-  #   depends_on:
-  #     - mongo
+  backend:
+    container_name: backend
+    build: ./
+    volumes:
+      - ./:/src
+      - nodemodules:/src/node_modules
+    depends_on:
+      - mongo
+    ports:
+      - 5000:5000
+      - 1883:1883
+    restart: always
 
 volumes:
   nodemodules: {}

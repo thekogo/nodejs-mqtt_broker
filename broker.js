@@ -1,15 +1,5 @@
 const mosca = require('mosca');
-const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/mqtt',
-  {
-    auth: {
-      authSource: 'admin',
-    },
-    user: 'root',
-    pass: 'example',
-    useNewUrlParser: true,
-  });
 // import database model
 const User = require('./model/User');
 const Data = require('./model/Data');
